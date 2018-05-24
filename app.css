@@ -1,22 +1,56 @@
 body{
-    background-color: #FAFAFA;
+    background-color: #f4eded;
 }
 .container {
     position: relative;
     margin: 15% auto;
     width: 300px;
     height: 400px;
-    color : #fff;
     background-color: #212121;
     box-shadow: 0 29px 38px rgba(0,0,0,0.50),
-    0 25px 22px rgba(0,0,0,0.30);
-    border-radius: 2px;
+                0 25px 22px rgba(0,0,0,0.30),
+                inset 0 0 15px 5px rgb(227, 228, 229);
+    border-radius: 15px;
+    border: 2px solid;
+    border-color: #9E9E9E;
 }
-.container .time{
-    padding-top: 200px;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    position: relative;
-    text-align: center;
+.time{
+  font-size: 3rem;
+  color : #D50000;
+  letter-spacing: 3px;
+  font-family: Montserrat, sans-serif;
+  /*text-shadow: 0px 110px 40px rgb(219, 8, 8);*/
+}
+.time-container{
+  margin: 0 auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 0px 130px 50px rgb(132, 2, 2),
+              0px 120px 70px rgb(99, 1, 1);
+}
+#set{
+  margin-top: 28px;
+  margin-left: 22px;
+  padding: 5px;
+  background-color: #212121;
+  color: #fefefe;
+  border: none;
+}
+.fa{
+  font-size: 1.7rem;
+}
+#set:hover, #set:focus{
+  color: #9E9E9E;
+}
+.brand{
+  font-family: Montserrat, sans-serif;
+  font-size: 1.2rem;
 }
 
+.semi-oval{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}

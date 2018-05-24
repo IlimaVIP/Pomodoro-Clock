@@ -3,15 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="app.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
 </head>
 <body>
     <div class="container">
-        <div class="circle"></div>
-        <p class="time">25:00</p>
+      <button class="fa fa-cog" id="set"></button>
+      <button class="brand" id="set">Pomodoro#1</button>
+      <button class="fa fa-pause-circle" id="set"></button>
+       <div class="settings" style="display:none;"></div>
+         <div class="home">
+           <div class="time-container"><p class="time">25:00</p></div>
+            <div class="semi-oval">
+              <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
+          
+               <defs>
+                 <filter id="shadow">
+                   <feDropShadow dx="0" dy="10" stdDeviation="6"/>
+                 </filter>
+                </defs>
+          
+                <path id="path" d="M10 80 Q 95 10 180 80" stroke="red" stroke-width="2" fill="none" filter="url(#shadow)"/>
+                <circle cx=77 cy=46 r=7 stroke=#FF5252 stroke-width=2 fill=red />
+              </svg>
+        
+         </div>
+        </div>
+      </div>
     </div>
 </body>
