@@ -1,5 +1,5 @@
 body{
-    background-color: #f4eded;
+    background-color: #e2e2e2;
 }
 .container {
     position: relative;
@@ -19,7 +19,6 @@ body{
   color : #D50000;
   letter-spacing: 3px;
   font-family: Montserrat, sans-serif;
-  /*text-shadow: 0px 110px 40px rgb(219, 8, 8);*/
 }
 .time-container{
   margin: 0 auto;
@@ -31,26 +30,102 @@ body{
 }
 #set{
   margin-top: 28px;
-  margin-left: 22px;
   padding: 5px;
+  background-color: #212121;
+  color: #e5e5e5;
+  border: none;
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.fa{
+  font-size: 2rem;
+}
+.fa-cog{
+  margin-left: 25px;
+}
+#set:hover, #set:focus{
+  color: #fff;
+}
+.brand{
+  width: 160px;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.2rem;
   background-color: #212121;
   color: #fefefe;
   border: none;
-}
-.fa{
-  font-size: 1.7rem;
-}
-#set:hover, #set:focus{
-  color: #9E9E9E;
-}
-.brand{
-  font-family: Montserrat, sans-serif;
-  font-size: 1.2rem;
 }
 
 .semi-oval{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.circle {
   
 }
+
+
+@keyframes move {
+  0% {
+    transform: scale(1) rotate(80deg) translateZ(0);
+  }
+  90% {
+    background: red;
+  }
+  100% {
+    transform: scale(0.25) rotate(80deg) translateZ(0);
+  }
+}
+
+.settings{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-size: .9rem;
+}
+.break{
+  margin-top: 70px;
+  min-width: 110px;
+  min-height: 150px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: .5px solid #424242;
+}
+.session{
+  margin-top: 70px;
+  min-width: 110px;
+  min-height: 150px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: .5px solid #424242;
+}
+.btn{
+  width: 40px;
+  height: 40px;
+  font-family: Montserrat, sans-serif;
+  font-size: 2rem;
+  border-radius: 50%;
+  border: none;
+  background: #212121;
+  color: silver;
+  margin: 5px;
+  padding: 0px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.btn:hover, .btn:focus{
+  color: red;
+}
+.btn:active{
+  transform: translateY(2px);
+  color: red;
+  box-shadow: 0 0 16px 4px rgb(158, 17, 11), 0 0 20px 0 rgb(158, 17, 11);
+}
+
+
