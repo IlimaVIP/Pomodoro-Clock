@@ -36,15 +36,19 @@
          <div class="home">
            <div class="time-container"><p class="time">25:00</p></div>
             <div class="semi-oval">
-              <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                 <filter id="shadow">
-                   <feDropShadow dx="0" dy="10" stdDeviation="6"/>
-                 </filter>
-                </defs>
-                <path id="path" d="M10 80 Q 95 10 180 80" stroke="red" stroke-width="2" fill="none" filter="url(#shadow)"/>
-                <circle class="circle" cx=15 cy=76 r=7 stroke=#f70202 stroke-width=2 fill=#f92020 />
-              </svg>
+                <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                     <filter id="shadow">
+                      <feDropShadow dx="0" dy="10" stdDeviation="6"/>
+                     </filter>
+                    </defs>
+                    <circle class="circle" cx="0" cy=0 r=7 stroke=#f70202 stroke-width=2 fill=#f92020 >
+                      <animateMotion dur="100s" repeatCount="indefinite" rotate="auto" >
+                        <mpath xlink:href="#path"/>
+                      </animateMotion>
+                    </circle>
+                    <path id="path" d="M10 80 Q 95 10 180 80" stroke="red" stroke-width="2" fill="none" filter="url(#shadow)"/>
+                 </svg>
               
            </div>
         </div>

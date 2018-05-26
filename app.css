@@ -61,22 +61,6 @@ body{
   justify-content: center;
 }
 
-.circle {
-  
-}
-
-
-@keyframes move {
-  0% {
-    transform: scale(1) rotate(80deg) translateZ(0);
-  }
-  90% {
-    background: red;
-  }
-  100% {
-    transform: scale(0.25) rotate(80deg) translateZ(0);
-  }
-}
 
 .settings{
   display: flex;
