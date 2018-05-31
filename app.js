@@ -1,31 +1,81 @@
-var t;
-var tID = null; /* Our timeout ID */
-var startTimeout = new Date(); /* When the timer starts */
-var timeLeft = 0; /* How much time is left */
-function setTimer(duration, display){
-    var timer = duration, minutes, seconds;
-    t = setInterval(function () {
-      minutes = parseInt(timer / 60, 10);
-      seconds = parseInt(timer % 60, 10);
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-      seconds = seconds < 10 ? "0" + seconds : seconds;
-      display.html(minutes + ':' + seconds);
-      if (--timer < 0) {
-            timer = duration;
-      }
-    }, 1000);
-    
-  }
-
 $(document).ready(function(){
+  var displayBreak = $('.displayBreak').attr('value');
+  var displaySession = $('.displaySession').attr('value');
+  var display = $('.time');
   
-  /* basic functions for UI */
+ /* increment and decrement break and session value when buttons clicked. */
+ $('#minBreak').click(function(){
+    if(displayBreak>1){
+      displayBreak-=1;
+      $('.displayBreak').html(displayBreak);
+    }
+  });
+  $('#plusBreak').click(function(){
+    displayBreak++;
+    $('.displayBreak').html(displayBreak);
+  });
+  $('#minSession').click(function(){
+    if(displaySession>1){
+      displaySession-=1;
+      $('.displaySession').html(displaySession);
+      $('.time').html(displaySession + ':00');
+    }
+  });
+  $('#plusSession').click(function(){
+    displaySession++;
+    $('.displaySession').html(displaySession);
+    $('.time').html(displaySession + ':00');
+  });
+  /* timer section */
+  var currentTime, deadline, timeLeft, timeinterval;
+  
+  function RemainingTime(endtime){
+    var t = Date.parse(endtime) - Date.parse(new Date());
+	  var seconds = Math.floor( (t/1000) % 60 );
+	  var minutes = Math.floor( (t/1000/60) % 60 );
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+	  return {'total':t, 'minutes':minutes, 'seconds':seconds};
+  }
+  
+  function initializeClock(display, endtime){
+    timeinterval = setInterval(function(){
+      var t = RemainingTime(endtime);
+      display.html(t.minutes + ':' + t.seconds);
+      if(t.total<=0){
+        clearInterval(timeinterval);
+        currentTime = Date.parse(new Date());
+        deadline = new Date(currentTime + displayBreak*60*1000);
+        BkeakTime(display, deadline);
+        $('.brand').animate({'opacity': 0}, 200, function(){
+          $(this).html('Break').animate({'opacity': 1}, 600);    
+        });
+      }
+    },1000);
+  }
+  function BkeakTime(display, endtime){
+    timeinterval = setInterval(function(){
+      var t = RemainingTime(endtime);
+      display.html(t.minutes + ':' + t.seconds);
+      if(t.total<=0){
+        clearInterval(timeinterval);
+        currentTime = Date.parse(new Date());
+        deadline = new Date(currentTime + displaySession*60*1000);
+        initializeClock(display, deadline);
+      }
+    },1000);
+  }
+  
+  /* functions to display on UI */
   $('.fa-cog').on('click', function(){
+    clearTimeout(timeinterval);
+    timeLeft=undefined;
+    display.html(displaySession + ':00');
     if( $('.settings').is(":hidden") ){
       $('.home').hide();
       $('.settings').fadeIn('slow');
       $('.brand').animate({'opacity': 0}, 200, function(){
-        $(this).html('Settings').animate({'opacity': 1}, 600);    
+        $(this).html('Settings').animate({'opacity': 1}, 600);
       });
       
       $('.fa-play-circle').is(":hidden")? $('.fa-pause-circle').hide() : $('.fa-play-circle').hide();
@@ -39,59 +89,34 @@ $(document).ready(function(){
       $('.fa-pause-circle').is(":hidden")? $('.fa-play-circle').fadeIn('slow') : $('.fa-pause-circle').fadeIn('slow');
     }
   });
-  $('.brand').click(function(){
-    
-  });
+  
   $('.fa-play-circle').click(function(){
     $('.fa-play-circle').hide();
     $('.fa-pause-circle').show();
     $('.brand').animate({'opacity': 0}, 200, function(){
-        $(this).html('Focus').animate({'opacity': 1}, 600);    
-      });
-    var display = $('.time');
-    setTimer(displaySession*60, display);
+      $(this).html('Focus').animate({'opacity': 1}, 600);    
+    });
+    if(timeLeft==undefined){
+      currentTime = Date.parse(new Date());
+      deadline = new Date(currentTime + displaySession*60*1000);
+      initializeClock(display, deadline);
+    }else{
+      currentTime = Date.parse(new Date());
+      deadline = new Date(Date.parse(new Date()) + timeLeft);
+      initializeClock(display, deadline);
+    }
   });
+  
   $('.fa-pause-circle').click(function(){
     $('.fa-play-circle').show();
     $('.fa-pause-circle').hide();
     $('.brand').animate({'opacity': 0}, 200, function(){
         $(this).html('Pomodoro').animate({'opacity': 1}, 600);    
       });
-    clearTimeout(t);
+		clearTimeout(timeinterval);
+		timeLeft = RemainingTime(deadline).total;
   });
   
-  /* increment and decrement break and session value when buttons clicked. */
-  
-  var displayBreak = $('.displayBreak').attr('value');
-  var displaySession = $('.displaySession').attr('value');
-  var timeBreak = 0, timeSession = 0;
-  $('#minBreak').click(function(){
-    if(displayBreak>1){
-      displayBreak-=1;
-      $('.displayBreak').html(displayBreak);
-      timeBreak = displayBreak;
-    }
-  });
-  $('#plusBreak').click(function(){
-    displayBreak++;
-    $('.displayBreak').html(displayBreak);
-    timeBreak = displayBreak;
-  });
-  $('#minSession').click(function(){
-    if(displaySession>1){
-      displaySession-=1;
-      $('.displaySession').html(displaySession);
-      $('.time').html(displaySession + ':00');
-      timeSession = displaySession;
-    }
-  });
-  $('#plusSession').click(function(){
-    displaySession++;
-    $('.displaySession').html(displaySession);
-    $('.time').html(displaySession + ':00');
-    timeSession = displaySession;
-  });
-  
-  
+ 
 });
 

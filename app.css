@@ -1,115 +1,128 @@
 body{
-    background-color: #e2e2e2;
+  background-color: #e2e2e2;
 }
 .container {
-    position: relative;
-    margin: 15% auto;
-    width: 300px;
-    height: 400px;
-    background-color: #212121;
-    box-shadow: 0 29px 38px rgba(0,0,0,0.50),
-                0 25px 22px rgba(0,0,0,0.30),
-                inset 0 0 15px 5px rgb(227, 228, 229);
-    border-radius: 15px;
-    border: 2px solid;
-    border-color: #9E9E9E;
+  position: relative;
+  margin: 15% auto;
+  width: 300px;
+  height: 400px;
+  background-color: #212121;
+  box-shadow: 0 29px 38px rgba(0,0,0,0.50),
+              0 25px 22px rgba(0,0,0,0.30),
+              inset 0 0 15px 5px rgb(227, 228, 229);
+  border-radius: 15px;
+  border: 2px solid;
+  border-color: #9E9E9E;
 }
 .time{
-  font-size: 3rem;
-  color : #D50000;
-  letter-spacing: 3px;
-  font-family: Montserrat, sans-serif;
+font-size: 3rem;
+color : #D50000;
+letter-spacing: 3px;
+font-family: Montserrat, sans-serif;
 }
 .time-container{
-  margin: 0 auto;
-  width: 180px;
-  text-align: center;
-  border-radius: 50%;
-  box-shadow: 0px 130px 50px rgb(132, 2, 2),
-              0px 120px 70px rgb(99, 1, 1);
+margin: 0 auto;
+width: 180px;
+text-align: center;
+border-radius: 50%;
+box-shadow: 0px 130px 50px rgb(132, 2, 2),
+            0px 120px 70px rgb(99, 1, 1);
 }
 #set{
-  margin-top: 28px;
-  padding: 5px;
-  background-color: #212121;
-  color: #e5e5e5;
-  border: none;
-  -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+margin-top: 28px;
+padding: 5px;
+background-color: #212121;
+color: #e5e5e5;
+border: none;
+-webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 .fa{
-  font-size: 2rem;
+font-size: 2rem;
 }
 .fa-cog{
-  margin-left: 25px;
+margin-left: 25px;
 }
 #set:hover, #set:focus{
-  color: #fff;
+color: #fff;
 }
 .brand{
-  width: 160px;
-  font-family: Montserrat, sans-serif;
-  font-size: 1.2rem;
-  background-color: #212121;
-  color: #fefefe;
-  border: none;
+width: 160px;
+font-family: Montserrat, sans-serif;
+font-size: 1.2rem;
+background-color: #212121;
+color: #fefefe;
+border: none;
 }
 
 .semi-oval{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
+
+
+@keyframes move {
+0% {
+  transform: scale(1) rotate(80deg) translateZ(0);
+}
+90% {
+  background: red;
+}
+100% {
+  transform: scale(0.25) rotate(80deg) translateZ(0);
+}
+}
 
 .settings{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  font-family: Montserrat, sans-serif;
-  font-size: .9rem;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+color: #fff;
+font-family: Montserrat, sans-serif;
+font-size: .9rem;
 }
 .break{
-  margin-top: 70px;
-  min-width: 110px;
-  min-height: 150px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border: .5px solid #424242;
+margin-top: 70px;
+min-width: 110px;
+min-height: 150px;
+align-items: center;
+justify-content: center;
+text-align: center;
+border: .5px solid #424242;
 }
 .session{
-  margin-top: 70px;
-  min-width: 110px;
-  min-height: 150px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border: .5px solid #424242;
+margin-top: 70px;
+min-width: 110px;
+min-height: 150px;
+align-items: center;
+justify-content: center;
+text-align: center;
+border: .5px solid #424242;
 }
 .btn{
-  width: 40px;
-  height: 40px;
-  font-family: Montserrat, sans-serif;
-  font-size: 2rem;
-  border-radius: 50%;
-  border: none;
-  background: #212121;
-  color: silver;
-  margin: 5px;
-  padding: 0px;
-  -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+width: 40px;
+height: 40px;
+font-family: Montserrat, sans-serif;
+font-size: 2rem;
+border-radius: 50%;
+border: none;
+background: #212121;
+color: silver;
+margin: 5px;
+padding: 0px;
+-webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 .btn:hover, .btn:focus{
-  color: red;
+color: red;
 }
 .btn:active{
-  transform: translateY(2px);
-  color: red;
-  box-shadow: 0 0 16px 4px rgb(158, 17, 11), 0 0 20px 0 rgb(158, 17, 11);
+transform: translateY(2px);
+color: red;
+box-shadow: 0 0 16px 4px rgb(158, 17, 11), 0 0 20px 0 rgb(158, 17, 11);
 }
 
 

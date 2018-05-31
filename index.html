@@ -10,48 +10,47 @@
     <script type="text/javascript" src="app.js"></script>
 </head>
 <body>
-    <div class="container">
-      <button class="fa fa-cog" id="set"></button>
-      <span id="animation"><button class="brand">Pomodoro</button></span>
-      <button class="fa fa-play-circle" id="set"></button>
-      <button class="fa fa-pause-circle" id="set" style="display:none;"></button>
-      <div class="settings" style="display:none;">
-        <div class="break">
-         <p class="">Break</p>
-         <span class="break-time">
-           <h3>5 min</h3>
-           <button class="btn" ontouchstart="">-</button>
-           <button class="btn" ontouchstart="">+</button>
-          </span>
-        </div>
-        <div class="session">
-         <p class="">Session</p>
-         <span class="session-time">
-           <h3>25 min</h3>
-           <button class="btn" ontouchstart="">-</button>
-           <button class="btn" ontouchstart="">+</button>
-          </span>
-        </div>
+  <div class="container">
+    <button class="fa fa-cog" id="set"></button>
+    <span id="animation"><button class="brand">Pomodoro</button></span>
+    <button class="fa fa-play-circle" id="set"></button>
+    <button class="fa fa-pause-circle" id="set" style="display:none;"></button>
+    <div class="settings" style="display:none;">
+      <div class="break">
+       <p class="">Break</p>
+       <span class="break-time">
+         <h3 class="displayBreak" value=5>5</h3>
+         <button class="btn" id="minBreak" ontouchstart="">-</button>
+         <button class="btn" id="plusBreak" ontouchstart="">+</button>
+        </span>
       </div>
-         <div class="home">
-           <div class="time-container"><p class="time">25:00</p></div>
-            <div class="semi-oval">
-                <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                     <filter id="shadow">
-                      <feDropShadow dx="0" dy="10" stdDeviation="6"/>
-                     </filter>
-                    </defs>
-                    <circle class="circle" cx="0" cy=0 r=7 stroke=#f70202 stroke-width=2 fill=#f92020 >
-                      <animateMotion dur="100s" repeatCount="indefinite" rotate="auto" >
-                        <mpath xlink:href="#path"/>
-                      </animateMotion>
-                    </circle>
-                    <path id="path" d="M10 80 Q 95 10 180 80" stroke="red" stroke-width="2" fill="none" filter="url(#shadow)"/>
-                 </svg>
-              
-           </div>
-        </div>
+      <div class="session">
+       <p class="">Session</p>
+       <span class="session-time">
+         <h3 class="displaySession" value=25>25</h3>
+         <button class="btn" id="minSession" ontouchstart="">-</button>
+         <button class="btn" id="plusSession" ontouchstart="">+</button>
+        </span>
       </div>
     </div>
+       <div class="home">
+         <div class="time-container"><p class="time">25:00</p></div>
+          <div class="semi-oval">
+             <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
+               <defs>
+                <filter id="shadow">
+                 <feDropShadow dx="0" dy="10" stdDeviation="6"/>
+                </filter>
+               </defs>
+               <circle class="circle" cx="0" cy=0 r=7 stroke=#f70202 stroke-width=2 fill=#f92020 >
+                 <animateMotion dur="60s" repeatCount="indefinite" rotate="auto" >
+                   <mpath xlink:href="#path"/>
+                 </animateMotion>
+               </circle>
+               <path id="path" d="M10 80 Q 95 10 180 80" stroke="red" stroke-width="2" fill="none" filter="url(#shadow)"/>
+            </svg>
+         </div>
+      </div>
+    </div>
+  </div>
 </body>
