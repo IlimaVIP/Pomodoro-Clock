@@ -62,6 +62,9 @@ $(document).ready(function(){
         currentTime = Date.parse(new Date());
         deadline = new Date(currentTime + displaySession*60*1000);
         initializeClock(display, deadline);
+        $('.brand').animate({'opacity': 0}, 200, function(){
+          $(this).html('Focus').animate({'opacity': 1}, 600);    
+        });
       }
     },1000);
   }
