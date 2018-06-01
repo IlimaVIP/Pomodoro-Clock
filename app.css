@@ -61,6 +61,10 @@ align-items: center;
 justify-content: center;
 }
 
+button:focus {
+  outline: 0;
+}
+
 
 
 @keyframes move {
