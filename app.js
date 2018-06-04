@@ -3,6 +3,9 @@ $(document).ready(function(){
   var displaySession = $('.displaySession').attr('value');
   var display = $('.time');
   
+  var alarm = document.createElement('audio');
+  alarm.setAttribute("src", "https://res.cloudinary.com/dbtrc2jyb/video/upload/v1527863888/Ringtone-for-alarm_l1kqpa.mp3");
+
  /* increment and decrement break and session value when buttons clicked. */
  $('#minBreak').click(function(){
     if(displayBreak>1){
@@ -26,6 +29,10 @@ $(document).ready(function(){
     $('.displaySession').html(displaySession);
     $('.time').html(displaySession + ':00');
   });
+  
+  
+  
+  
   /* timer section */
   var currentTime, deadline, timeLeft, timeinterval;
   
@@ -43,10 +50,16 @@ $(document).ready(function(){
       var t = RemainingTime(endtime);
       display.html(t.minutes + ':' + t.seconds);
       if(t.total<=0){
+        alarm.currentTime = 0;
+        alarm.play();
+        //alarm.pause();
         clearInterval(timeinterval);
         currentTime = Date.parse(new Date());
         deadline = new Date(currentTime + displayBreak*60*1000);
         BkeakTime(display, deadline);
+        $('.circle').animate({
+           dur: t.total
+        });
         $('.brand').animate({'opacity': 0}, 200, function(){
           $(this).html('Break').animate({'opacity': 1}, 600);    
         });
@@ -62,6 +75,9 @@ $(document).ready(function(){
         currentTime = Date.parse(new Date());
         deadline = new Date(currentTime + displaySession*60*1000);
         initializeClock(display, deadline);
+        $('.circle').animate({
+          dur: t.total
+        });
         $('.brand').animate({'opacity': 0}, 200, function(){
           $(this).html('Focus').animate({'opacity': 1}, 600);    
         });
@@ -114,8 +130,8 @@ $(document).ready(function(){
     $('.fa-play-circle').show();
     $('.fa-pause-circle').hide();
     $('.brand').animate({'opacity': 0}, 200, function(){
-        $(this).html('Pomodoro').animate({'opacity': 1}, 600);    
-      });
+      $(this).html('Pomodoro').animate({'opacity': 1}, 600);    
+    });
 		clearTimeout(timeinterval);
 		timeLeft = RemainingTime(deadline).total;
   });
